@@ -5,10 +5,25 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
 </head>
 <body>
 
+<% if !flash.blank? %>
+<div class="messages">
+	<% flash.each do |key, value| %>
+	<div class="<%= key.to_s %>">
+		<%= value %>
+	</div>	
+	<% end %>
+
+</div>
+<% end %>
+<div class="container">
+
+
 <%= yield %>
 
+</div>
 </body>
 </html>

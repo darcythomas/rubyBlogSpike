@@ -1,0 +1,8 @@
+<% if  @articles.empty? %>
+	<p>Nothing to see here. Move along now. Hey look!! Shiney!!</p>
+<% else %>
+	<% @articles.each do |a| %>
+		<h1><%= link_to a.title, slugged_path(a.slug) %></h1>
+		<div> <%= a.content %> </div>
+	<% end %>
+<% end %>
